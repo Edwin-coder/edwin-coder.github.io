@@ -2,15 +2,24 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
-
+function flatten(array) {
+  // will need a new array to contain all elements 
+  var newArr = [];
+  // will need two loops to work with nested arrays 
+for(var i = 0; i < array.length;i++){
+  for(var j = 0; j < array[i].length; j++){
+    newArr.push(array[i][j])
+  }
+}
+// return newArr
+return newArr
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
+function loop(value,testfunc,updatefunc,bodfunc) {
 
 }
 
@@ -18,7 +27,14 @@ function loop() {
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
+function every(arr,test) {
+for(var i = 0; i < arr.length;i++){
+  if(test(arr[i])){
+    return true
+  } else if(!test(arr[i])){
+    return false
+  }
+}
 
 }
 
@@ -26,8 +42,19 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(texts) {
+let countArr = countBy(texts,function(text){
+//find the associated script object for each letter that i have access to 
+let characterObj = characterScript(text.charCodeAt());
 
+if(characterObj){
+  return characterObj.direction;
+}
+});
+countArr.sort(function(a,b){
+  return b.count - a.count;
+});
+return countArr[0].name;
 }
 
 // /////////////////////////////////////////////////////////////////////////////

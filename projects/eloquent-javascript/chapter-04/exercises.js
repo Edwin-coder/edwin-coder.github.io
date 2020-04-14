@@ -2,7 +2,24 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(num1,num2,num3) {
+// will need to push all given numbers inclusive to array 
+var arr = [];
+// if both numbers are equal then return an empty array 
+
+// if given a third parameter must increment by that number and push numbers in array 
+    if(num3 > 0){
+      for(var j = num1; j <= num2; j += num3){
+        arr.push(j);
+      }
+  // if given 2 parameters must push all numbers inclusive to array    
+    } else if (num1 < num2){
+   for(var i = num1; i <= num2; i++ ){
+      arr.push(i);
+   } 
+    }
+//if given a negative third parameter must return empty array 
+ return arr;
 
 }
 
@@ -10,47 +27,82 @@ function range() {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(arr) {
+// will need a count to hold sum of array
+var count = 0
+// will need to itterate through array and add all numbers to count 
+for(var i = 0; i < arr.length; i++){
+  count += arr[i];
+}
+return count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(arr) {
+// need to create an array literal to contain elements 
+var newArr = []
+// will need to push all elements from given array backwards to new array
+for(var i = arr.length-1; i >= 0; i--){
+  newArr.push(arr[i]);
+}
+// return new array 
+return newArr;
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// need to study 
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    let old = array[i];
+    array[i] = array[array.length - 1 - i];
+    array[array.length - 1 - i] = old;
+  }
+  return array;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+// convert array to object list 
+var obj = null;
+// will need to put array elements in object 
+  for (var i = array.length - 1; i >= 0; i--) {
+    obj = {value: array[i], rest: obj};
+  }
+  //return the obj 
+  return obj;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(obj) {
+// convert obj to array list 
+var arr = [];
+// will need to cycle through obj and push all values into array
 
+return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(val,arr) {
+// will use unshift to put val at first position in given array
+console.log(arr + "this is arr")
+console.log(val + "this is val")
+arr.unshift(val);
+
 
 }
 

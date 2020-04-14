@@ -2,7 +2,18 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function min() {
+function min(num1,num2) {
+// will need to compare the two numbers and return the smallest 
+if(num1 < num2){
+  return num1
+} else if(num1 > num2){
+  return num2;
+} else {
+  return num1
+}
+
+
+
 
 }
 
@@ -10,7 +21,16 @@ function min() {
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
+function isEven(num) {
+  // will need to determine if given number is even 
+  // will use the remainder sign to determine if number is even 
+if(num % 2 === 0){
+  return true;
+} else{
+  return false 
+}
+
+
 
 }
 
@@ -18,7 +38,20 @@ function isEven() {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string,char) {
+  // will need to create a count to cout how many times that char is in there 
+  var count = 0;
+  
+// will need to cycle through string characters to count how many times a given char is in it 
+for(var i = 0; i < string.length;i++){
+  // if i equals to char increase count by one 
+  if(string[i] === char){
+    count++
+  }
+}
+// must return count 
+return count;
+
 
 }
 
@@ -26,8 +59,17 @@ function countChars() {
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(str) {
+// will need to create a count to count numbers of bs 
+var count = 0
+// will need to cycle through array to count all bs 
+for(var i = 0; i < str.length; i++){
+  if(str[i] === "B"){
+    count++
+  }
+}
+// must return count 
+return count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
