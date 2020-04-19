@@ -7,18 +7,17 @@
  * There are two types of conditional statements, if else statements 
  * and switch statements.
  * 
- * 1. If else statements are started with the key word if. Then you follow it with 
+ * 1. If statements are started with the key word "If". Then you follow it with 
  * parenthesis. Inside the parenthesis is the condition that will be evaluated. After 
  * the parenthesis you place a pair of curly braces. Inside the curly braces will 
- * be the code you want executed if the condition in parenthesis are true. You can 
- * tag on other conditions to be tested starting with the keyword else if. 
- * else if has the same syntax as the if statement except you don't use the 
- * keyword if. Every condition you want tested after that will be an else if statement.
- * To prevent your code from crashing you should place an else statement 
- * incase all conditions fail. The else statement sytax starts with the keyword else 
- * followed by curly braces. Inside the curly braces is the code you want executed 
- * incase all fails!
- * 
+ * be the code you want executed if the condition in parenthesis are true. You can only
+ * have one if statement but you can tag on as many conditions as you want to be
+ * tested starting with the keyword "else if". "Else if" has the same syntax as the 
+ * if statement except you don't use the keyword "If". Every condition you want tested 
+ * after that will be an else if statement.To prevent your code from crashing you should 
+ * place an "else" statement incase all conditions fail.You can only have one "else" 
+ * statement. The else statement sytax starts with the keyword "else" followed by
+ * curly braces. Inside the curly braces is the code you want executed incase all fails!
  * 
  * 
  * 2. Switch statement are another way we can control the flow of our code. Especially
@@ -27,11 +26,13 @@
  * In the parenthesis is our expression that will be tested on a case for a match. Then 
  * you follow up with a pair of curly braces. Inside the curly braces is where all your 
  * conditions will be tested. Start with the keyword case followed by a value then colons.
- * You must go to the next line and put the code you want executed. After every statement
- * you must put a semicolon. The next line will be your break followed by a semi colon so
- * it could end the case being tested. A default should be put in to place incase all fails.
- * You start it off with the keyword default followed by colons then on the next line the 
- * code you want executed followed by a semicolon. 
+ * You can have as many case's you want to test. You must go to the next line and put 
+ * the code you want executed. After every statement you must put a semicolon. 
+ * The next line will be your break followed by a semi colon so it could end the case being tested.
+ * A default should be put as the very last statement in your switch statement 
+ * incase all fails. You can only have one default since this will be the only code 
+ * ran if all fails.You start it off with the keyword default followed by
+ * colons then on the next line the code you want executed followed by a semicolon. 
  * 
  * 
  * */
@@ -48,9 +49,9 @@ var virus = 2020
      console.log("I'm locked up they wont let me out :(")
     // else statement incase all fails using keyword else 
  } else{
-    console.log("What will the future hold?")
- }
- 
+    console.log("What will the future hold?") /* <-- "What will the future hold?" will print 
+                                                     since all other conditions fail.*/
+  }  
  
  
  // 2. switch statements 
@@ -62,7 +63,7 @@ var virus = 2020
     console.log(2020);
     break;
     case "superbowl":
-    console.log("XLIV")
+    console.log("XLIV") // <--- "XLIV" will print because event matches with case "superbowl.
     break;
     case "Big move": 
     console.log("California")

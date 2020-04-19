@@ -7,14 +7,14 @@
  * act on specific values inside of them. There are while loops, for loops, and for 
  * in loops. 
  * 
- * 1. For loops are normally used to itterate over arrays. To statr a for loop you must use 
+ * 1. For loops are normally used to iterate over arrays. To start a for loop you must use 
  * the keyword for followed by parenthesis. Within the parenthesis there are three statements:
  * Starting point to loop, Stoping point, and incrementor or decrementor. After that is your pair 
  * of curly braces that will hold your code you want executed.
  * 
- * 2. For in loops are used to itterate over objects. To start a for in loop use the 
+ * 2. For in loops are used to iterate over objects. To start a for in loop use the 
  * keyword for followed by parenthesis. Inside your parenthesis you will put: var key in 
- * object(name of object you choose to itterate over);. Then after the parenthesis add a 
+ * object(name of object you choose to iterate over);. Then after the parenthesis add a 
  * pair of curly braces. Inside the curly braces will be what you want to execute you values 
  * while cycling through it. To access just the keys you would type key.
  * To access the values of keys you would type object(name of your object)[key]. 
@@ -37,7 +37,8 @@
 var myArray = [23,"saints", true, "Yuh"]
  /**
   * initialize: var i = 0
-  * stopping condition: i < myArray.length
+  * stopping condition: i < myArray.length  // Note* We must make sure our stopping condition
+  * has an expression that can eventually come to an end to prevent an infinite loop.
   * increment: i++
   */
  for(var i = 0; i < myArray.length; i++){
@@ -76,13 +77,15 @@ console.log(myTeam[key]);
  
  
 // 3. while loops 
+// To prevent an infinte loop we must have a breakout.
+
 // Reverse looping
  var quaratinedDays = 60
 // Going backwards 
  while(quaratinedDays >= 0){
 
 console.log(quaratinedDays)
-// Decrementor to break out of code
+// Decrementor to break out of code   // <---- breakout
 quaratinedDays --
  }
 
@@ -93,5 +96,5 @@ quaratinedDays --
  while(daysToFreedom <= 60 ){
    console.log(daysToFreedom)
    // Incrementor to break out of code !
-   daysToFreedom++
+   daysToFreedom++  // <-- breakout 
  }

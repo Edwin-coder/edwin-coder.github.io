@@ -27,9 +27,9 @@
  **/
 
  
- //1. .length will return number of characters in a string 
- var myName = "Edwin";
- console.log(myName.length); // prints 5
+ //1.  The split() method takes a string and put it into an array.
+ var splitMethod = "The split method takes a string and puts it into a array!";
+console.log(splitMethod.split()); // will print the string inside an array
  
  
  

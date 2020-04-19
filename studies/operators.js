@@ -45,33 +45,47 @@
  
  // 2. Comparison operators compare two value to return a boolean.
  
- var number = 50;
- // Greater than sign >
- if(number > 40 ){
-     console.log("greater than") // true, will print 
-  // less than sign <   
- } else if(number < 60 ){
-     console.log("less than") //false, would not print 
-     // Greater than or equal to sign >=
- }  else if(number >= 45){
-     console.log("greater than or equal to") // true, would print
-     // Less than or equal to sign <=
- } else if(number <= 65) {
-     console.log("less than or equal to") // false , would not print 
-     // Strictly equal to sign ===
- } else if (number === "50"){
-     console.log("strictly equal to") // false, would not print because "50" is a string
-     // not stricly equal to sign ==
- } else if (number == 50){
-     console.log("non strictly equal to") // true, would print  
-     // Strictly not equal to sign !==
- } else if(number !== 50){
-     console.log("strictly Not equal to") // false, would not print 
-     // Not Strictly not equal to sign
- } else if (number != 65){
-     console.log("Not strictly not equal to ") // true, would print 
- }
  
+ // Greater than sign >
+ 50 > 40  // true 
+
+ // less than sign <   
+ 50 < 60  // true 
+   
+ // Greater than or equal to sign >=
+ 50 >= 45 // true 
+   
+ // Less than or equal to sign <=
+ 50 <= 65 //true
+     
+ // Strictly equal to sign ===
+ 50 === "50" // false 
+   
+ // not stricly equal to sign ==
+ "50" == 50 // true
+     
+  // Strictly not equal to sign !==
+ 50 !== 50 // false
+   
+  // Not Strictly not equal to sign
+ 50 != 65 // true
+ 
+ /* How are the strict and loose comparison operators different (== vs ===) ? 
+ In Javascript , when you try to perform operations on two values that are different,
+ it will convert a value to get an answer . This is called type coercion.
+ For Example 
+ */
+  console.log("10" == 10)// will print true
+     
+/* Above a loose operator is used. Although "10" is a string, Javascript knows 
+     we meant the number ten so it converted that string into a number to show that 
+     "10" is in fact equal to 10.     
+     
+ If we wanted to be more precise in our comparison then we would use the strict 
+ equal operator. 
+ For example 
+     */
+  console.log("10" === 10)// will print false because these two values are differemt datatypes.
  
  
  // 3. Logical operators will evaluate both sets of operands to return a boolean 

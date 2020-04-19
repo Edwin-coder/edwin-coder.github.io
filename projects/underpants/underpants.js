@@ -601,36 +601,19 @@ _.some = function(collect,func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-_.reduce = function(collect,func,seed){
-    // must use seed for first iteration 
-    var previousResult = seed
- // will need to cycle through all elements in collect
- for(var i = 0; i < collect.length; i++){
-     // will use the return value of func as the "previous result"
-    previousResult = func(previousResult, collect[i], i);
-    //after the last itteration return the value from func call 
-    if(i === collect.length){
-        return func(previousResult,collect[i],i);
-    }
-    
- }
- // if no seed is given, use the first element of collection as the seed 
- if(!seed){
-for(var j = 0; j < collect.length; j++){
-    // if no seed is given, use the first element of collection as the seed
-    previousResult = collect[0];
-    //after the last itteration return the value from func call 
-    if(j === collect.length){
-  return  func(previousResult,collect[j],j);
-    }
-}
- }
- 
- 
- 
- 
- 
-}
+_.reduce = function(array, func, seed) {
+    // use each fucntion to call on each element in the array
+    _.each(array, function(element, i, array){
+        // check if seed exists if not return function with first element as seed
+        if(seed === undefined) {
+            seed = element;
+        } else {
+            seed = func(seed, element, i);
+        }
+    });
+    // return the seed, single final value
+    return seed;
+};
  
 
 

@@ -8,8 +8,8 @@
  * 
  * 
  * 0. A variable can only store up to 8 bytes in memory. With that being said, they can 
- * directly store simple data types because there is already a set amount of bytes for each simple datatype
- * . A number has eight bytes and a boolean has one byte.
+ * directly store simple data types because there is already a set amount of bytes for 
+ * each simple datatype. A number has eight bytes and a boolean has one byte.
  * 
  * 1. Simple datatypes consist of strings, numbers, booleans, undefined, NaN, and null
  * 
@@ -22,22 +22,74 @@
  * */
  
  // 1. Simple datatypes 
- 8 // number
+ 
+ 8 /* This datatype is called numbers. We usually use numbers to perform arithmetic 
+ operations like division and addition to get a value. */
+ var sum = 8 + 8
+ console.log(sum) // <-- will print 16
+ 
+/* String is any text inside of quotient marks or double marks. The qoutes from begining
+of string must match qoutes at end of string. Strings cannot be subtracted, divided, multiplied,
+or added.They can be concatenated which glues other string together using the plus operator .
 
- "Edwin" // string is a word inside of quotient marks
+*/
+// concating strings 
+"H" + "E" + "L" + "L" + "O" + "!"
+
+ var name = "Edwin"  
  
- true  // booleans are either true or false 
- false
+var sentence = "This is a sentence with 43 chracters in it."
+ console.log(sentence) // <-- will print "This is a sentence with 43 chracters in it."
  
- undefined // no value or what pops up if a variable isn't initialized
+ /* Booleans are either true or false. They are used to tell us if a statement is true 
+ or false. To produce a boolean value you would usually compare two values in a conditional 
+ statement.Which play a big role in the way our code flows.
  
- NaN // stands for not a number
+ */
+ // ture boolean 
+ true 
+ //false boolean 
+ false 
+ // booleans in action
+  var isTrue = 10 > 5
+ console.log(isTrue) // will print true 
  
- null // no value, put in place by programmer 
+ var isFalse = 10 < 5
+ console.log(isFalse) // will print false 
  
- Infinity // Is a numeric value representing infinity. Is greater than all numbers 
  
- -Infinity // Is a numeric value representing infinity. Less than all numbers 
+ 
+ undefined // undefined is what prints when there is no value assigned to a variable. 
+ var whatsInside;
+ console.log(whatsInside) /* Will print undefined because there is no value assigned 
+ to whatsInside
+ */
+ 
+/* null is used to show that there is an absence of a meaningful value. It can be 
+interchageable with undefined*/
+ var someInfo = {
+  firstName : null //<-- how null can be used.
+ }
+ 
+ 
+ NaN /*This is what appears when you try Arithmetic operations on the wrong type of values
+ that doesn't show its a number in an obvious way.*/
+ 
+  var product = 5 * "five"
+ console.log(product) // will print NaN
+
+ 
+ Infinity /*Infinity is a property of the global object. Numbers too large they
+ overflow the buffer will result in the value Infinity. Is greater than all numbers.
+ Any number divided by Infinity will equal zero */ 
+ 
+  5 / Infinity // <--- will equal 0
+ 
+ -Infinity // This is also the same as infinity except all numbers are negative.
+ 
+ 
+ 
+ 
  
  // 2. Immutable 
  // Once a string is created it cannot be altered for example.
@@ -45,13 +97,14 @@
  
 // firstName[0] = "e"; <====  will not change the original string to a lowercased e
 
-// 3. Copy
+// 3. Copy by value
 // simple datatypes are copied from one variable to the next 
 firstName = "Edwin"
 var fullName = firstName + "Henriquez"
 console.log(fullName)
 fullName = "David Henriquez"
-console.log(firstName) // re-assining fullName doesn't effect the variable firstName value
+console.log(firstName) // Re-assining fullName doesn't effect the variable firstName value.
+                        //Therefore "Edwin" will print.
 
 
 
@@ -98,13 +151,13 @@ console.log(firstName) // re-assining fullName doesn't effect the variable first
  
  
  
- // 2. Complex datatypes are mutable  
+ // 2. Complex datatypes are copied by reference 
  
- // the value stored in myInformation is a reference to myObject so they both are tied to the original object
- // Any complex datatype that is referenced and is changed will effect all complex data types that are referenced.
+ // The value stored in myInformation is a reference to myObject so they both are tied to the original object.
+ //  This means any changes made to myInformation will directly effect the source myObject.
  var myInformation = myObject;
  myInformation.firstName = "David";
- console.log(myObject); // will show that David is now the firstName
+ console.log(myObject); // Will show that David is now the firstName in myObject.
  
  
  
