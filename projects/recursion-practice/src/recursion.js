@@ -24,14 +24,18 @@ if(n > 0){
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
-  // base case 
-  // 
-  if(array.length === 0){
-    return ;
+  // base casse 
+  // if array.length equals 1 return the firt element in array
+  if(array.length === 1){
+    return array[0] 
   }
-  // recursive case 
-  //add first element 
- 
+  if(array.length >= 1){
+    // access first number in array and at it to the next number 
+   return array[0] + sum(array.slice(1));
+  } else {
+    return 0;
+  }
+  
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -41,17 +45,37 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+ // base case
+ // if num % 2 = 0 return true 
+ // if it is not then return false 
+ 
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  
+  
+  
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+  // base case 
+  // if x equals y dont add y 
+if(x === y - 1) return y; 
+
+// recursive case 
+
+var arr = []
+
+arr.push(range(x + 1, y))
+console.log(arr);
+
+
+
 };
 
 // 7. Compute the exponent of a number.
