@@ -28,9 +28,18 @@
  var sum = 8 + 8
  console.log(sum) // <-- will print 16
  
+ // numbers can also be negative integers or fractional numbers 
+ 
+ // negative intergers 
+ console.log(-5 + -5) // <-- will print -10
+// fractional numbers 
+console.log(1.5 + 1.5 ) // <-- will print 3 
+ 
 /* String is any text inside of quotient marks or double marks. The qoutes from begining
-of string must match qoutes at end of string. Strings cannot be subtracted, divided, multiplied,
-or added.They can be concatenated which glues other string together using the plus operator .
+of string must match qoutes at end of string. Strings are zero based index like 
+arrays, so the first character in a string is zero instead of one. Strings cannot be subtracted,
+divided, multiplied, or added.They can be concatenated which glues other string together 
+using the plus operator .
 
 */
 // concating strings 
@@ -40,6 +49,20 @@ or added.They can be concatenated which glues other string together using the pl
  
 var sentence = "This is a sentence with 43 chracters in it."
  console.log(sentence) // <-- will print "This is a sentence with 43 chracters in it."
+ 
+ /*To access individual characters in a string you must use bracket notation. 
+Strings are zero based index! To access the first character in a string you 
+put a zero in between the brackets after the name of the variable the string is assigned to
+for example : */
+ 
+ var aString = "hello"
+console.log(aString[0]); // <-- will print h
+
+// to access the very last charcater in a string 
+
+ console.log(aString[aString.length - 1]) // <--  will print o 
+
+ 
  
  /* Booleans are either true or false. They are used to tell us if a statement is true 
  or false. To produce a boolean value you would usually compare two values in a conditional 
@@ -97,7 +120,7 @@ interchageable with undefined*/
  
 // firstName[0] = "e"; <====  will not change the original string to a lowercased e
 
-// 3. Copy by value
+// 2.1 Copy by value
 // simple datatypes are copied from one variable to the next 
 firstName = "Edwin"
 var fullName = firstName + "Henriquez"
@@ -124,18 +147,25 @@ console.log(firstName) // Re-assining fullName doesn't effect the variable first
  
  // 1. Complex Datatypes 
  
- //function
- // You use the keyword function followed by a name, then parenthesis, then curly brackets
- // It is optional to have parameters, which act as placeholders in parenthesis
- // The code you want executed goes inside the curly braces.
+ /* 1.1 Function:
+ You use the keyword function followed by a name, then parenthesis, then curly brackets.
+ It is optional to have parameters, which act as placeholders in parenthesis
+ The code you want executed goes inside the curly braces. Functions are usually 
+ used to encapsulate a block of code to use multiple times.  */
+ 
  function thisIsAFunction(){
      console.log("Hi");
  }
  
- // objects consist of two curly braces 
+  
+ /* 1.2s Objects are used to store a collection of data rather then just storing a single value. 
+ The syntax of objects are two curly braces with properties inside. These properties have 
+ key/value pairs with colons seperating the key and value. 
+*/
  var myObject = {}
  
- // Information is stored with key/value pairs followed by a comma except for the last one
+ // Information is stored with key/value pairs which are called properties. They are 
+ //followed by a comma except for the last one
  myObject = {
      firstName: "Edwin",
      middleName: "David",
@@ -143,9 +173,11 @@ console.log(firstName) // Re-assining fullName doesn't effect the variable first
      age: 23
  }
  
- //array
- //arrays consist of two brackets 
+ /* 1.3 Arrays are used to store a sequence of data. The syntax of 
+ arrays consist of two brackets with elements inside seperated by commas. Arrays are 
+ zero based indexed meaning you count the elements in the array starting at zero.*/
  var myArray = []
+ 
  // Information is stored followed by commas except for the last one 
  myArray =[true,23,[],{},function(){}];
  
@@ -162,4 +194,49 @@ console.log(firstName) // Re-assining fullName doesn't effect the variable first
  
  
  
+ // 3. How to access values in a collection 
+ 
+ /**
+  * 3.1 Accessing Arrays.
+  * To get a particular value in an array, you have to use bracket notation and know 
+  * the index number at which the desired value exist. Arrays are zero based indexed which means 
+  * if you want the first element in the array.You must put a zero in between the brackets after 
+  * the name of the variable at which the array is assigned to. 
+  * For example:
+  * */
+ 
+ var myArray = [21,1,1,1,12,2,23,4,5]
+
+console.log(myArray[0]) // -> will print 21
+
+/* If you wanted to access the very last element. You will type the name of the variable 
+the array is assigned to. Followed by brackets with the name of the variable inside with .length 
+taged on it minus one. Since the length property starts counting at 1 and arrays are zero based index.
+You have to minus one at the end to be precise. */
+
+// For example
+console.log(myArray[myArray.length - 1]) // -> will print 5
+
+
+/**
+ * 3.1 Accessing Objects
+ * Objects are not zero based indexed. They have properties which consist of key/value pairs. 
+ * They can be accessed by name. If you know the exact name of the key you want to access, use 
+ * dot notation. If your key has a space in the name you must use bracket notation with the name
+ * of the key in the quotes.
+ * 
+ * */
+ 
+ let customerInfo = {
+  firstName : "Pac",
+  lastName : "man",
+  "Birth year" : 1980,
+  age: 39
+
+
+}
+// Dot notation .
+console.log(customerInfo.age) // prints 39
+//Bracket notation []
+console.log(customerInfo["Birth year"]) // prints 1980
  

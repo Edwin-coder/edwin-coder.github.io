@@ -39,26 +39,26 @@ function fizzBuzz(start,end) {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(num) {
-
+function drawChessboard(num){
+var size = num;
+// will need to print in a string 
 var board = "";
-console.log(board)
 //this first loop creates every line to be worked on 
-for (var i = 0; i <= num; i++) {
-
-  for (var j = 0; j <= num; j++) {
+for (var i = 0; i < size; i++) {
+// the second loop will create whats on the line 
+  for (var j = 0; j < size; j++) {
     if ((i + j) % 2 == 0) {
       board += " ";
     } else {
       board += "#";
     }
   }
-  
   board += "\n";
 }
-
-return board;
+console.log(board);
 }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

@@ -49,15 +49,34 @@ var isEven = function(n) {
  // if num % 2 = 0 return true 
  // if it is not then return false 
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  //base 
+  // stop recursing when n equals 1 , then return 1 
+  if(n === 0){
+     return 0 
+  }
+
   
   
-  
+  // recursive case 
+if(n > 0){
+   return n - 1 + sumBelow(n-1)    
+} else if( n < 0){
+  return n + 1 + sumBelow(n + 1)  
+}
+ 
 };
 
 // 6. Get the integers in range (x, y).
@@ -84,13 +103,35 @@ console.log(arr);
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // Base case: Stop recurring when exponent === 0
+  //  base case
+    if(exp === 0) {
+      return 1;
+    } else if(exp < 0) {
+      return 1/ exponent(base, -exp);
+    } else {
+        return base * exponent(base, exp - 1);
+    } 
 };
+
+
+
+
+
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+ // base case 
+ if (n === 1){
+   return true 
+ }
+ 
+ // recursive case
+ return n / 2 powerOfTwo(n / 2);
+  
 };
 
 // 9. Write a function that accepts a string a reverses it.
