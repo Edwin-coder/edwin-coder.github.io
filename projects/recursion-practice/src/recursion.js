@@ -44,18 +44,27 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
+
 var isEven = function(n) {
  // base case
- // if num % 2 = 0 return true 
- // if it is not then return false 
- 
- 
- 
- 
- 
- 
- 
- 
+// if number is strictly equal to zero return true 
+ if(n === 0){
+   return true 
+   //if number strictly equals 1 return false 
+ } else if(n=== 1){
+   return false 
+ }
+
+// recursive case 
+// subtract n minus two until it reaches zero or 1 
+if(n > 0){
+ return isEven(n-2) 
+} else if(n < 0){
+  // if number is negative add two until it reaches one or zero 
+  return isEven(n+2);
+}
+
+
 };
 
 // 5. Sum all integers below a given integer.
@@ -82,19 +91,25 @@ if(n > 0){
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-  // base case 
-  // if x equals y dont add y 
-if(x === y - 1) return y; 
+let arr = []
+// if x equals y + 1 return arr , for negative integers
+if(x === y + 1){
+  return arr
+// if x strictly equals y minus one return array , positive integers 
+} else if(x === y - 1){
+  return arr
+} else if( x === y){
+  return arr;
+}
 
 // recursive case 
-
-var arr = []
-
-arr.push(range(x + 1, y))
-console.log(arr);
-
-
-
+// add one to x 
+if(x < y){
+  return arr.concat( x + 1 , range(x + 1, y))
+  // subtract one from x
+} else if ( x > y){
+  return arr.concat( x - 1 , range (x - 1, y))
+}
 };
 
 // 7. Compute the exponent of a number.
@@ -130,12 +145,21 @@ var powerOfTwo = function(n) {
  }
  
  // recursive case
- return n / 2 powerOfTwo(n / 2);
+
   
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  // if string length is zero return empty string to collect back up the chain
+  if(!string.length){
+    return ""
+  }
+  // recursive case 
+  // invoke functon to slice of first char 
+
+  return reverse(string.slice(1)) + string[0];
+  
 };
 
 // 10. Write a function that determines if a string is a palindrome.

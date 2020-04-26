@@ -7,9 +7,14 @@ function range(num1,num2,num3) {
 var arr = [];
 // if both numbers are equal then return an empty array 
 
+
+// if num3 is less than or equal to zero return an empty array 
+         if(num3 <= 0){
+           return [];
+         }
 // if given a third parameter must increment by that number and push numbers in array 
-    if(num3 > 0){
-      for(var j = num1; j <= num2; j += num3){
+    else if (num3 > 0){
+      for(var j = num1; j <= num2;  j += num3 ){
         arr.push(j);
       }
   // if given 2 parameters must push all numbers inclusive to array    
@@ -88,30 +93,33 @@ var obj = null;
 function listToArray(obj) {
 // convert obj to array list 
 var arr = [];
-// will need to cycle through obj and push all values into array
 
-return arr;
+  for (let node = obj; node; node = node.rest) {
+    arr.push(node.value);
+  }
+  return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend(val,arr) {
-// will use unshift to put val at first position in given array
-console.log(arr + "this is arr")
-console.log(val + "this is val")
-arr.unshift(val);
-
-
+function prepend(value, list) {
+  return {value, rest: list};
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(arr, n) {
+  if (!arr){
+    return undefined;
+  } 
+  else if (n == 0){
+    return arr.value;
+  } 
+  else return nth(arr.rest, n - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
