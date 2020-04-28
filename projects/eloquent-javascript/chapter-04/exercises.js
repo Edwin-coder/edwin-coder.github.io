@@ -62,13 +62,17 @@ return newArr;
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // need to study 
-
 function reverseArrayInPlace(array) {
+  
   for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    
     let old = array[i];
+    
     array[i] = array[array.length - 1 - i];
+    
     array[array.length - 1 - i] = old;
   }
+  //return array 
   return array;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +83,12 @@ function arrayToList(array) {
 // convert array to object list 
 var obj = null;
 // will need to put array elements in object 
+//Building up a list is easier when done back to front. 
   for (var i = array.length - 1; i >= 0; i--) {
+    //for each element add obj to list
+    /*You can use a local binding to hold the part of the list that was built so far 
+    and use an assignment like list = {value: X, rest: list} to add an element.
+    */
     obj = {value: array[i], rest: obj};
   }
   //return the obj 
@@ -92,12 +101,16 @@ var obj = null;
 
 function listToArray(obj) {
 // convert obj to array list 
+// will need to create array literal to hold values 
 var arr = [];
+// this will iterate over list
+for (let node = obj; node; node = node.rest) {
+  //simply take the value property of its head node. 
+  arr.push(node.value)
+}
 
-  for (let node = obj; node; node = node.rest) {
-    arr.push(node.value);
-  }
-  return arr;
+//return array
+  return arr
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -105,6 +118,9 @@ var arr = [];
 ////////////////////////////////////////////////////////////////////////////////
 
 function prepend(value, list) {
+  // console.log(value)
+  // console.log(list);
+  // return object literal with the value and list as params to put in list 
   return {value, rest: list};
 }
 
@@ -113,12 +129,15 @@ function prepend(value, list) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function nth(arr, n) {
+  // if not an array returned undefined
   if (!arr){
     return undefined;
+    //if number equals zero return the list val
   } 
   else if (n == 0){
     return arr.value;
   } 
+  //
   else return nth(arr.rest, n - 1);
 }
 
@@ -126,7 +145,32 @@ function nth(arr, n) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x,y) {
+  // compare numbers 
+  if (typeof x  === "number" && typeof y === "number" && x === y) {
+    return true
+    
+    } else if(x === y){
+      return true;
+    }
+  // if undfine or null 
+  if (x == null || typeof x != "object" ){
+     return false;
+  } else if ( y == null || typeof y != "object"){
+    return false 
+  }
+     // will need to put all keys in an array to compare length of arrays
+    let keysx = Object.keys(x) 
+    let keysy = Object.keys(y);
+    // if lengths are not equals return false 
+  if (keysx.length !== keysy.length){
+    return false;
+  }
+   for (let key of keysx) {
+    if (!keysy.includes(key) || !deepEqual(x[key], y[key])) return false;
+  }
+// return true as default 
+  return true;
 
 }
 

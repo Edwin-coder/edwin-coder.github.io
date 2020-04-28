@@ -18,23 +18,33 @@ return newArr
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
-
-function loop(value,testfunc,updatefunc,bodfunc) {
-
+function loop(first, test, neww, body) {
+  // will need to use a for loop to update all values based on given action function 
+  for (let value = first; test(value); value = neww(value)) {
+    body(value);
+  }
 }
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
 function every(arr,test) {
-for(var i = 0; i < arr.length;i++){
-  if(test(arr[i])){
-    return true
-  } else if(!test(arr[i])){
-    return false
+// for(var i = 0; i <= arr.length;++i){
+//   if( !test(arr[i]) ){
+//     return false
+//     }
+// }
+// will need to access all elements in array
+      for (let element of arr) {
+        // will inok function to act on each element in array 
+        //return false if any element is false 
+    if (!test(element)) return false;
   }
-}
+  // return true of all elements are true 
+  return true;
+    
 
 }
 
