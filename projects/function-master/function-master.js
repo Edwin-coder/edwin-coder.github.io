@@ -19,6 +19,8 @@ function objectValues(object) {
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function keysToString(object) {
+    // will use Object.keys method to get all keys in object
+    // the use .join() to put them all in a string 
   return Object.keys(object).join(' ')
 }
 
